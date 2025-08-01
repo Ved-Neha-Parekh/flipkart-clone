@@ -1,0 +1,40 @@
+/* style.css */
+
+:root {
+    /* Flipkart color palette */
+    --primary-color: #2874f0;
+    /* Flipkart blue */
+    --secondary-color: #f0f0f0;
+    /* Light grey background */
+    --accent-color: #ff9f00;
+    /* Orange accent */
+    --text-color: #212121;
+    /* Dark text */
+    --text-light: #878787;
+    /* Light text */
+
+    /* Fonts */
+    --font-family: 'Roboto', sans-serif;
+
+    /* Spacing */
+    --padding-section: 2rem;
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-color);
+    background-color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    /* background-color: var(--primary-color); */
+    color: #fff;
+}
+
+footer {
+    /* background-color: #172337; */
+    color: #fff;
+    padding: var(--padding-section);
+}
