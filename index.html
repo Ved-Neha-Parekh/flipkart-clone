@@ -59,7 +59,7 @@
 
           <!-- More -->
           <li class="nav-item dropdown">
-            <a class="nav-link text-dark dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown">
               <i class="bi bi-three-dots-vertical"></i>
             </a>
             <ul class="dropdown-menu dropdown-menu-end">
@@ -77,7 +77,7 @@
   </header>
 
   <!-- Categories -->
-  <section class="categories py-3 bg-light mt-2 mx-3">
+  <section class="categories py-3 bg-light mt-3 mx-3">
     <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap">
       <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
         <img src="./imgs/minutes.webp" alt="minutes">
@@ -127,20 +127,221 @@
   </section>
 
   <!-- Hero/Banner -->
-  <section id="hero">
+  <section class="hero my-3 mx-3">
     <!-- Bootstrap Carousel placeholder -->
+    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+
+      <div class="carousel-inner">
+        <div class="carousel-item active" data-bs-interval="3000">
+          <img src="./imgs/banner-1.webp" class="d-block w-100" alt="banner-1">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="./imgs/banner-2.webp" class="d-block w-100" alt="banner-2">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="./imgs/banner-3.webp" class="d-block w-100" alt="banner-3">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="./imgs/banner-4.webp" class="d-block w-100" alt="banner-4">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="./imgs/banner-5.webp" class="d-block w-100" alt="banner-5">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+          <img src="./imgs/banner-6.webp" class="d-block w-100" alt="banner-6">
+        </div>
+        <div class="carousel-item active">
+          <img src="./imgs/banner-7.webp" class="d-block w-100" alt="banner-7">
+        </div>
+      </div>
+
+      <button class="carousel-control-prev" data-bs-target="hero-carousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon">
+        </span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+
+      <button class="carousel-control-next" data-bs-target="hero-carousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon">
+        </span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <!-- <div class="carousel-indicators custom-indicators">
+      <div class="indicator" data-bs-target="hero-carousel" data-bs-slide-to="0">
+        <div class="progress"></div>
+      </div>
+      <div class="indicator" data-bs-target="hero-carousel" data-bs-slide-to="1">
+        <div class="progress"></div>
+      </div>
+      <div class="indicator" data-bs-target="hero-carousel" data-bs-slide-to="2">
+        <div class="progress"></div>
+      </div>
+    </div> -->
   </section>
 
-  <!-- Products -->
-  <section id="products">
-    <!-- Product grid -->
+  <!-- ...existing code... -->
+  <section class="deals mx-3 my-3 rounded">
+    <div class="container-fluid ">
+      <div class="row">
+        <!-- Left: Deals Strip -->
+        <div class="col-lg-10 bg-white pt-3 ps-4">
+          <h5 class="fw-bold mb-3 text-start">Best Deals on Smartphones</h5>
+          <div class="position-relative">
+            <!--! Left Arrow -->
+            <!-- <button class="scroll-btn left d-none d-lg-flex">
+              <i class="bi bi-chevron-left"></i>
+            </button> -->
+            <!-- Product Cards Strip -->
+            <div id="deals-strip" class="d-flex overflow-auto gap-3 pb-2">
+              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
+                style="width: 180px;">
+                <img src="./imgs/mobile-1.webp" alt="Motorola G85 5G" class="w-100 mb-2 deal-img">
+                <div class="fw-semibold small text-dark">Motorola G85 5G</div>
+                <div class="fw-bold text-primary small">from 14999*</div>
+              </a>
+              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
+                style="width: 180px;">
+                <img src="./imgs/mobile-2.webp" alt="Vivo T4 5G" class="w-100 mb-2 deal-img">
+                <div class="fw-semibold small text-dark">Vivo T4 5G</div>
+                <div class="fw-bold text-primary small">from 20499*</div>
+              </a>
+              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
+                style="width: 180px;">
+                <img src="./imgs/mobile-3.webp" alt="Oppo K13 5G" class="w-100 mb-2 deal-img">
+                <div class="fw-semibold small text-dark">Oppo K13 5G</div>
+                <div class="fw-bold text-primary small">from 16499*</div>
+              </a>
+              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
+                style="width: 180px;">
+                <img src="./imgs/mobile-4.webp" alt="Motorola G45 5G" class="w-100 mb-2 deal-img">
+                <div class="fw-semibold small text-dark">Motorola G45 5G</div>
+                <div class="fw-bold text-primary small">From 10999*</div>
+              </a>
+              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
+                style="width: 180px;">
+                <img src="./imgs/mobile-5.webp" alt="POCO F7 5G" class="w-100 mb-2 deal-img">
+                <div class="fw-semibold small text-dark">POCO F7 5G</div>
+                <div class="fw-bold text-primary small">from 29999*</div>
+              </a>
+              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
+                style="width: 180px;">
+                <img src="./imgs/mobile-6.webp" alt="POCO F7 5G" class="w-100 mb-2 deal-img">
+                <div class="fw-semibold small text-dark">POCO F7 5G</div>
+                <div class="fw-bold text-primary small">from 29999*</div>
+              </a>
+            </div>
+            <!--! Right Arrow -->
+            <!-- <button class="scroll-btn right d-none d-lg-flex">
+              <i class="bi bi-chevron-right"></i>
+            </button> -->
+          </div>
+        </div>
+        <div class="col-lg-2 m-0">
+          <img src="./imgs/ad-banner-1.webp" alt="ad-banner">
+        </div>
+      </div>
+    </div>
   </section>
 
-  <!-- Footer -->
-  <footer>
-    <!-- Footer links -->
+  <footer class="bg-dark text-white pt-5">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-2 mb-4">
+          <h6 class="fw-bold">
+            ABOUT
+          </h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light text-decoration-none">Contact Us</a></li>
+            <li><a href="#" class="text-light text-decoration-none">About Us</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Careers</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Flipkart Stories</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Press</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Corporate Information</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2 mb-4">
+          <h6 class="fw-bold">
+            GROUP COMPANIES
+          </h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light text-decoration-none">Myntra</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Cleartrip</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Shopsy</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2 mb-4">
+          <h6 class="fw-bold">
+            HELP
+          </h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light text-decoration-none">Payments</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Shipping</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Cancellation & Returns</a></li>
+            <li><a href="#" class="text-light text-decoration-none">FAQ</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h6 class="fw-bold">
+            CONSUMER POLICY
+          </h6>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-light text-decoration-none">Cancellation & Returns</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Terms Of Use</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Security</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Privacy</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Sitemap</a></li>
+            <li><a href="#" class="text-light text-decoration-none">Grievance Redressal</a></li>
+            <li><a href="#" class="text-light text-decoration-none">EPR Compliance</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-2 mb-4">
+          <h6 class="fw-bold">Mail Us:</h6>
+          <p class="small mb-1">Flipkart Internet Private Limited, Buildings Alyssa, Begonia & Clove Embassy Tech
+            Village, Outer Ring Road, Devarabeesanahalli Village, Bengaluru, 560103, Karnataka, India</p>
+          <div class="d-flex gap-4">
+            <a href="#" class="text-light"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="text-light"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="text-light"><i class="bi bi-youtube"></i></a>
+            <a href="#" class="text-light"><i class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+        <div class="col-md-2 mb-4">
+          <h6 class="fw-bold">Registered Office Address:</h6>
+          <p class="small mb-1">Flipkart Internet Private Limited, Buildings Alyssa, Begonia & Clove Embassy Tech
+            Village, Outer Ring Road, Devarabeesanahalli Village, Bengaluru, 560103, Karnataka, India</p>
+          <p class="small mb-0">CIN : U51109KA2012PTC066107</p>
+          <p class="small mb-0">Telephone: 044-45614700 / 044-67415800</p>
+        </div>
+
+        <hr class="border-light">
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-4 d-flex flex-wrap gap-4 align-items-center">
+              <span><i class="bi bi-briefcase-fill"></i> Become a Seller</span>
+              <span><i class="bi bi-megaphone-fill"></i> Advertise</span>
+              <span><i class="bi bi-gift-fill"></i> Gift Cards</span>
+              <span><i class="bi bi-question-circle-fill"></i> Help Center</span>
+            </div>
+
+            <div class="col-md-4 text-center">
+              <span>© 2007-2025 Flipkart.com</span>
+            </div>
+
+            <div class="col-md-4 text-end">
+              <img src="./imgs/payment-methoda.svg" alt="payment-methods">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
   </footer>
-
   <!-- Bootstrap Bundle JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
