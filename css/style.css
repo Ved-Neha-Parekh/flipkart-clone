@@ -1,4 +1,8 @@
-/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 :root {
   /* Flipkart color palette */
@@ -27,148 +31,431 @@ body {
 }
 
 header {
-  /* background-color: var(--primary-color); */
   color: #fff;
 }
 
 footer {
-  /* background-color: #172337; */
   color: #fff;
   padding: var(--padding-section);
 }
 
-/* Navbar Base */
-.navbar {
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+/*! LM Navbar */
+.fk-navbar {
+  z-index: 1030;
 }
 
-/* In style.css */
-.navbar form input {
-  background-color: #f0f5ff;
-  border: none;
-  border-radius: 2px;
+.fk-navbar .search-wrap {
+  max-width: 680px;
 }
 
-.navbar .nav-link,
-.navbar .btn-link {
-  color: #000;
+.fk-navbar .search-wrap .search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8aa0c6;
+  font-size: 1.1rem;
 }
 
-.navbar i {
-  color: #000;
+.fk-navbar .search-wrap .form-control {
+  background: #f0f5ff;
+  border: 1px solid #e6e6e6;
+  border-radius: 12px;
+  height: 44px;
+  color: #1f2937;
 }
 
-
-.navbar .nav-link:hover,
-.navbar .btn-link:hover {
-  color: var(--primary-color);
-  text-decoration: none;
+.fk-navbar .search-wrap .form-control::placeholder {
+  color: #9aa0a6;
 }
 
-.navbar form input:focus {
-  box-shadow: none;
+.fk-navbar .search-wrap .form-control:focus {
+  box-shadow: 0 0 0 3px rgba(40, 116, 240, .12);
+  border-color: #b9d2ff;
 }
 
-.dropdown-menu {
-  border: 1px solid #ddd;
-  border-radius: 5px;
-}
-
-.dropdown-item i {
-  margin-right: 8px;
-}
-
-/* Categories */
-
-.categories {
-  padding: 0 12px;
-}
-
-.category-item {
-  margin: 0 12px;
-}
-
-.category-item img {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
+/* Login btn + dropdown */
+.login-dd .btn.btn-primary {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  padding: .45rem .75rem;
   border-radius: 8px;
 }
 
-.category-item:hover img {
-  transform: scale(1.05);
-  transition: transform 0.2s ease;
+.login-menu {
+  width: 280px;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  overflow: hidden;
 }
 
-/* Carousel  */
-
-#hero {
-  margin: 20px 15px;
+.login-menu .dropdown-item {
+  font-size: .92rem;
 }
 
-.carousel-inner img {
+.login-menu .dropdown-item i {
+  color: #5f6368;
+}
+
+.login-menu .dropdown-item:hover {
+  background: #f6f9ff;
+}
+
+/* Right links */
+.fk-navbar .nav-link {
+  font-weight: 500;
+}
+
+.fk-navbar .nav-link i {
+  color: #374151;
+}
+
+/*! LM Navbar */
+
+/*! LM Categories */
+/* Categories strip */
+.categories {
+  position: relative;
+}
+
+.cat-strip {
+  -webkit-overflow-scrolling: touch;
+}
+
+.cat-strip::-webkit-scrollbar {
+  height: 6px;
+}
+
+.cat-strip::-webkit-scrollbar-thumb {
+  background: #ddd;
   border-radius: 4px;
-  max-height: 400px;
-  object-fit: cover;
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  width: 40px;
-  height: 80px;
+.cat-item {
+  width: 104px;
+  min-width: 104px;
+  text-align: center;
+}
+
+.cat-item img {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  border-radius: 12px;
+  transition: transform .15s ease;
+}
+
+.cat-item p {
+  margin: .4rem 0 0;
+  font-size: .9rem;
+  white-space: nowrap;
+}
+
+.cat-item:hover img {
+  transform: scale(1.05);
+}
+
+.cat-item:hover p {
+  color: var(--primary-color);
+}
+
+.cat-item.active p {
+  color: var(--primary-color);
+  font-weight: 600;
+  position: relative;
+}
+
+.cat-item.active p::after {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--primary-color);
+  margin: 4px auto 0;
+  border-radius: 2px;
+}
+
+/*! LM Categories */
+
+/*! LM Slider */
+.fk-hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1248/240;
+  border-radius: 10px;
+  background: #eef3ff;
+  overflow: hidden;
+}
+
+.fk-hero .slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .3s;
+}
+
+.fk-hero .slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.fk-hero .ctrl {
+  position: absolute;
   top: 50%;
   transform: translateY(-50%);
+  width: 36px;
+  height: 64px;
+  border: 0;
   background: #fff;
-  border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  opacity: 1;
-  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  z-index: 2;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-size: 70% 70%;
-  filter: invert(1);
+.fk-hero .ctrl.prev {
+  left: 8px;
 }
 
-/* .custom-indicators {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 8px;
-} */
+.fk-hero .ctrl.next {
+  right: 8px;
+}
 
-.indicator {
-  width: 50px;
+.fk-hero .ctrl i {
+  font-size: 1.25rem;
+  color: #2b2b2b;
+}
+
+.fk-hero .dots {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  display: flex;
+  gap: 8px;
+  z-index: 2;
+}
+
+.fk-hero .dot {
+  width: 28px;
   height: 4px;
-  background: #ccc;
-  overflow: hidden;
-  border-radius: 2px;
+  border-radius: 999px;
+  border: 0;
+  background: rgba(0, 0, 0, 0.18);
   cursor: pointer;
 }
 
-.indicator .progress {
-  width: 0%;
-  height: 100%;
-  background: #000;
-  transition: width 0s linear;
+.fk-hero .dot.active {
+  background: rgba(0, 0, 0, .65);
 }
 
-/* .carousel-control-prev:hover,
-.carousel-control-next:hover {
-  transform: translateY(-50%) scale(1.05);
-  transition: transform 0.2s ease;
-  -webkit-transition: transform 0.2s ease;
-  -moz-transition: transform 0.2s ease;
-  -ms-transition: transform 0.2s ease;
-  -o-transition: transform 0.2s ease;
-} */
+
+@media (max-width:576px) {
+  .fk-hero {
+    aspect-ratio: 16/9;
+  }
+}
+
+/*! LM Slider */
+
+/*! LM Deals */
+/* Deals rail (CSS-only pages, no JS) */
+.deals .deals-viewport {
+  position: relative;
+}
+
+/* Horizontal pages container with snap */
+.deals .deals-track {
+  display: flex;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+}
+
+/* Each page = full viewport width */
+.deals .page {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  padding: 0 14px 10px;
+  position: relative;
+  /* so page-specific buttons position correctly */
+}
+
+/* Tiles grid: support both class names you used */
+.deals .deals-container,
+.deals .deals {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 18px;
+}
+
+/* Responsive columns */
+@media (max-width: 992px) {
+
+  .deals .deals-container,
+  .deals .deals {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+
+  .deals .deals-container,
+  .deals .deals {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 576px) {
+
+  .deals .deals-container,
+  .deals .deals {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tile card */
+.deals .deal {
+  display: block;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: #fff;
+  padding: 12px;
+  text-align: center;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.deals .deal:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+}
+
+.deals .deal img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+}
+
+.deals .d-name {
+  color: #222;
+  font-size: .92rem;
+  margin-top: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deals .d-sub {
+  font-weight: 600;
+  font-size: .9rem;
+}
+
+/* Arrow buttons (anchors) — hidden by default; shown for current page via :has */
+.deals .deal-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 64px;
+  border: 0;
+  background: rgba(255, 255, 255, .96);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, .15);
+  display: none;
+  /* default hidden */
+  place-items: center;
+  z-index: 2;
+}
+
+.deals .deal-btn.prev {
+  left: 6px;
+}
+
+.deals .deal-btn.next {
+  right: 6px;
+}
+
+.deals .deal-btn i {
+  font-size: 1.25rem;
+  color: #2b2b2b;
+}
+
+/* Edge fades */
+.deals .deal-fade {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 14px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.deals .deal-fade.left {
+  left: 0;
+  background: linear-gradient(to right, rgba(255, 255, 255, .95), rgba(255, 255, 255, 0));
+}
+
+.deals .deal-fade.right {
+  right: 0;
+  background: linear-gradient(to left, rgba(255, 255, 255, .95), rgba(255, 255, 255, 0));
+}
+
+/* Show buttons only for the targeted page (CSS-only logic) */
+.deals-viewport:has(.page:target) .page .deal-btn {
+  display: none;
+}
+
+/* hide all first */
+.deals-viewport:has(.page:target) .page:target .deal-btn {
+  display: grid;
+}
+
+/* Initial state: no :target -> show next on first page */
+.deals-viewport:not(:has(.page:target)) #boe1 .deal-btn.next {
+  display: grid;
+}
+
+/* Optional: fade visibility tweaked by page */
+.deals-viewport:not(:has(.page:target)) .deal-fade.left,
+.deals-viewport:has(#boe1:target) .deal-fade.left {
+  display: none;
+}
+
+.deals-viewport:has(#boe3:target) .deal-fade.right {
+  display: none;
+}
+
+/* Optional: nicer focus for keyboard users */
+.deals .deal:focus-visible,
+.deals .deal-btn:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 116, 240, .2);
+  border-color: #b9d2ff;
+}
+
+/* Optional: subtle scrollbar styling on desktop */
+.deals .deals-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.deals .deals-track::-webkit-scrollbar-thumb {
+  background: #ddd;
+  border-radius: 4px;
+}
+
+/*! LM Deals */
 
 /* Deals  */
 
-.deals img {
+/* .deals img {
   max-width: 100%;
   display: block;
 }
@@ -217,7 +504,8 @@ footer {
 
 .scroll-btn:active {
   opacity: 1;
-}
+} */
+
 footer {
   background-color: #172337;
   color: #b0b0b0;

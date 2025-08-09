@@ -19,226 +19,403 @@
 <body>
   <!-- Header/Navbar -->
   <header>
-    <!-- Bootstrap Navbar placeholder -->
-    <nav class="navbar navbar-expand-lg bg-white">
-      <div class="container-fluid">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top fk-navbar shadow-sm">
+      <div class="container-xxl">
 
-        <!-- Left: Logo -->
-        <a class="navbar-brand d-flex align-items-center" href="#">
+        <!-- Brand -->
+        <a class="navbar-brand d-flex align-items-center gap-2" href="./index.html" title="Flipkart Clone">
           <img src="./imgs/header-logo.svg" alt="Flipkart Logo" height="30">
         </a>
 
-        <!-- Center: Search Bar -->
-        <form class="d-flex mx-3 flex-grow-1 position-relative">
-          <input class="form-control ps-5" type="search" placeholder="Search for products, brands and more"
-            aria-label="Search">
-          <span class="position-absolute top-50 start-0 translate-middle-y ps-3">
-            <i class="bi bi-search"></i>
-          </span>
-        </form>
+        <!-- Toggler (mobile) -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMain"
+          aria-controls="navMain" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-        <!-- Right: Buttons & More -->
-        <ul class="navbar-nav d-flex flex-row align-items-center ms-auto gap-3">
-          <!-- Login -->
-          <li class="nav-item d-flex align-items-center">
-            <i class="bi bi-person"></i>
-            <a href="#" class="nav-link text-dark">Login <i class="bi bi-caret-down-fill small"></i></a>
-          </li>
+        <!-- Collapsible content -->
+        <div class="collapse navbar-collapse" id="navMain">
 
-          <!-- Cart -->
-          <li class="nav-item d-flex align-items-center">
-            <i class="bi bi-cart3"></i>
-            <a class="nav-link text-dark" href="#">Cart</a>
-          </li>
+          <!-- Search (desktop) -->
+          <form class="search-wrap d-none d-lg-flex mx-lg-3 my-2 my-lg-0 position-relative flex-grow-1" role="search">
+            <i class="bi bi-search search-icon"></i>
+            <input id="searchInput" class="form-control ps-5" type="search"
+              placeholder="Search for Products, Brands and More" aria-label="Search" list="searchSuggestions"
+              autocomplete="off">
+            <datalist id="searchSuggestions"></datalist>
+          </form>
 
-          <!-- Become a Seller -->
-          <li class="nav-item d-flex align-items-center">
-            <i class="bi bi-shop-window"></i>
-            <a class="nav-link text-dark" href="#">Become a Seller</a>
-          </li>
+          <!-- Right actions -->
+          <ul class="navbar-nav ms-auto align-items-center gap-2 gap-lg-3">
 
-          <!-- More -->
-          <li class="nav-item dropdown">
-            <a class="nav-link text-dark" href="#" role="button" data-bs-toggle="dropdown">
-              <i class="bi bi-three-dots-vertical"></i>
-            </a>
-            <ul class="dropdown-menu dropdown-menu-end">
-              <li><a class="dropdown-item" href="#"><i class="bi bi-bell"></i> Notification Preferences</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-headset"></i> 24x7 Customer Care</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-arrow-up"></i> Advertise</a></li>
-              <li><a class="dropdown-item" href="#"><i class="bi bi-download"></i> Download App</a></li>
-            </ul>
-          </li>
-        </ul>
+            <!-- Login dropdown -->
+            <li class="nav-item dropdown login-dd">
+              <a id="loginDropdownBtn" class="btn btn-primary btn-sm d-flex align-items-center gap-2 dropdown-toggle"
+                href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-person"></i> Login
+              </a>
 
+              <div class="dropdown-menu dropdown-menu-end p-0 shadow login-menu">
+                <div class="d-flex justify-content-between align-items-center px-3 py-2 border-bottom bg-white">
+                  <span class="small text-muted">New customer?</span>
+                  <a href="#" class="text-primary fw-semibold small">Sign Up</a>
+                </div>
+                <a class="dropdown-item px-3 py-2" href="#"><i class="bi bi-person me-2"></i> My Profile</a>
+                <a class="dropdown-item px-3 py-2" href="#"><i class="bi bi-plus-circle me-2"></i> Flipkart Plus
+                  Zone</a>
+                <a class="dropdown-item px-3 py-2" href="#"><i class="bi bi-bag me-2"></i> Orders</a>
+                <a class="dropdown-item px-3 py-2" href="#"><i class="bi bi-heart me-2"></i> Wishlist</a>
+                <a class="dropdown-item px-3 py-2" href="#"><i class="bi bi-gift me-2"></i> Rewards</a>
+                <a class="dropdown-item px-3 py-2" href="#"><i class="bi bi-wallet2 me-2"></i> Gift Cards</a>
+              </div>
+            </li>
+
+            <!-- Cart -->
+            <li class="nav-item">
+              <a class="nav-link text-dark d-flex align-items-center" href="#">
+                <i class="bi bi-cart3 me-2"></i> Cart
+              </a>
+            </li>
+
+            <!-- Become a Seller -->
+            <li class="nav-item">
+              <a class="nav-link text-dark d-flex align-items-center" href="#">
+                <i class="bi bi-shop-window me-2"></i> Become a Seller
+              </a>
+            </li>
+
+            <!-- More -->
+            <li class="nav-item dropdown">
+              <a class="nav-link text-dark d-flex align-items-center" href="#" id="moreMenu" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="bi bi-three-dots-vertical fs-5"></i>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#"><i class="bi bi-bell me-2"></i> Notification Preferences</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-headset me-2"></i> 24x7 Customer Care</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-megaphone me-2"></i> Advertise</a></li>
+                <li><a class="dropdown-item" href="#"><i class="bi bi-download me-2"></i> Download App</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <!-- Search (mobile) -->
+          <form class="search-wrap d-flex d-lg-none my-2 position-relative w-100" role="search">
+            <i class="bi bi-search search-icon"></i>
+            <input id="searchInputMobile" class="form-control ps-5" type="search"
+              placeholder="Search for Products, Brands and More" aria-label="Search" list="searchSuggestions"
+              autocomplete="off">
+          </form>
+        </div>
       </div>
     </nav>
-
   </header>
 
   <!-- Categories -->
-  <section class="categories py-3 bg-light mt-3 mx-3">
-    <div class="container-fluid d-flex justify-content-between align-items-center flex-wrap">
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/minutes.webp" alt="minutes">
-        <p class="mt-2">Minutes</p>
-      </a>
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/top-offers.webp" alt="minutes">
-        <p class="mt-2">Top Offers</p>
-      </a>
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/mobile-tablets.webp" alt="minutes">
-        <p class="mt-2">Mobile & Tablets</p>
-      </a>
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/tv-applications.webp" alt="minutes">
-        <p class="mt-2">TVs & Appliances</p>
-      </a>
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/electronic.webp" alt="minutes">
-        <p class="mt-2">Electronics</p>
-      </a>
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/fashion.webp" alt="minutes">
-        <p class="mt-2">Fashion</p>
-      </a>
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/beauty-food.webp" alt="minutes">
-        <p class="mt-2">Beauty & Food</p>
-      </a>
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/home-decor.webp" alt="minutes">
-        <p class="mt-2">Home & Kitchen</p>
-      </a>
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/furniture.webp" alt="minutes">
-        <p class="mt-2">Furniture</p>
-      </a>
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/flight-booking.webp" alt="minutes">
-        <p class="mt-2">Flight Bookings</p>
-      </a>
-      <a href="#" class="category-item d-flex flex-column align-items-center text-decoration-none text-black">
-        <img src="./imgs/grocery.webp" alt="minutes">
-        <p class="mt-2">Grocery</p>
-      </a>
+  <section class="categories bg-light py-2 border-bottom">
+    <div class="container-xxl">
+
+      <div id="categoryBar" class="cat-strip d-flex align-items-center justify-content-evenly gap-1 overflow-x-auto">
+
+        <a href="#" class="cat-item active text-decoration-none text-black text-decoration-none">
+          <img src="./imgs/minutes.webp" alt="minutes">
+          <p>Minutes</p>
+        </a>
+
+        <a href="#" class="cat-item text-decoration-none text-black text-decoration-none">
+          <img src="./imgs/minutes.webp" alt="minutes">
+          <p>Minutes</p>
+        </a>
+
+        <a href="#" class="cat-item text-decoration-none text-black text-decoration-none">
+          <img src="./imgs/minutes.webp" alt="minutes">
+          <p>Minutes</p>
+        </a>
+
+        <a href="#" class="cat-item text-decoration-none text-black text-decoration-none">
+          <img src="./imgs/minutes.webp" alt="minutes">
+          <p>Minutes</p>
+        </a>
+
+        <a href="#" class="cat-item text-decoration-none text-black text-decoration-none">
+          <img src="./imgs/minutes.webp" alt="minutes">
+          <p>Minutes</p>
+        </a>
+
+        <a href="#" class="cat-item text-decoration-none text-black text-decoration-none">
+          <img src="./imgs/minutes.webp" alt="minutes">
+          <p>Minutes</p>
+        </a>
+
+        <a href="#" class="cat-item text-decoration-none text-black text-decoration-none">
+          <img src="./imgs/minutes.webp" alt="minutes">
+          <p>Minutes</p>
+        </a>
+
+        <a href="#" class="cat-item text-decoration-none text-black text-decoration-none">
+          <img src="./imgs/minutes.webp" alt="minutes">
+          <p>Minutes</p>
+        </a>
+
+        <a href="#" class="cat-item text-decoration-none text-black text-decoration-none">
+          <img src="./imgs/minutes.webp" alt="minutes">
+          <p>Minutes</p>
+        </a>
+
+      </div>
     </div>
   </section>
 
   <!-- Hero/Banner -->
-  <section class="hero my-3 mx-3">
-    <!-- Bootstrap Carousel placeholder -->
-    <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+  <section class="hero my-3">
+    <div class="container-xxl px-3">
 
-      <div class="carousel-inner">
-        <div class="carousel-item active" data-bs-interval="3000">
-          <img src="./imgs/banner-1.webp" class="d-block w-100" alt="banner-1">
-        </div>
-        <div class="carousel-item" data-bs-interval="3000">
-          <img src="./imgs/banner-2.webp" class="d-block w-100" alt="banner-2">
-        </div>
-        <div class="carousel-item" data-bs-interval="3000">
-          <img src="./imgs/banner-3.webp" class="d-block w-100" alt="banner-3">
-        </div>
-        <div class="carousel-item" data-bs-interval="3000">
-          <img src="./imgs/banner-4.webp" class="d-block w-100" alt="banner-4">
-        </div>
-        <div class="carousel-item" data-bs-interval="3000">
-          <img src="./imgs/banner-5.webp" class="d-block w-100" alt="banner-5">
-        </div>
-        <div class="carousel-item" data-bs-interval="3000">
-          <img src="./imgs/banner-6.webp" class="d-block w-100" alt="banner-6">
-        </div>
-        <div class="carousel-item active">
-          <img src="./imgs/banner-7.webp" class="d-block w-100" alt="banner-7">
-        </div>
-      </div>
-
-      <button class="carousel-control-prev" data-bs-target="hero-carousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon">
-        </span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-
-      <button class="carousel-control-next" data-bs-target="hero-carousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon">
-        </span>
-        <span class="visually-hidden">Next</span>
-      </button>
+      <div id="heroSlider" class="fk-hero"></div>
     </div>
-    <!-- <div class="carousel-indicators custom-indicators">
-      <div class="indicator" data-bs-target="hero-carousel" data-bs-slide-to="0">
-        <div class="progress"></div>
-      </div>
-      <div class="indicator" data-bs-target="hero-carousel" data-bs-slide-to="1">
-        <div class="progress"></div>
-      </div>
-      <div class="indicator" data-bs-target="hero-carousel" data-bs-slide-to="2">
-        <div class="progress"></div>
-      </div>
-    </div> -->
   </section>
 
-  <!-- ...existing code... -->
-  <section class="deals mx-3 my-3 rounded">
-    <div class="container-fluid ">
-      <div class="row">
-        <!-- Left: Deals Strip -->
-        <div class="col-lg-10 bg-white pt-3 ps-4">
-          <h5 class="fw-bold mb-3 text-start">Best Deals on Smartphones</h5>
-          <div class="position-relative">
-            <!--! Left Arrow -->
-            <!-- <button class="scroll-btn left d-none d-lg-flex">
-              <i class="bi bi-chevron-left"></i>
-            </button> -->
-            <!-- Product Cards Strip -->
-            <div id="deals-strip" class="d-flex overflow-auto gap-3 pb-2">
-              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
-                style="width: 180px;">
-                <img src="./imgs/mobile-1.webp" alt="Motorola G85 5G" class="w-100 mb-2 deal-img">
-                <div class="fw-semibold small text-dark">Motorola G85 5G</div>
-                <div class="fw-bold text-primary small">from 14999*</div>
-              </a>
-              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
-                style="width: 180px;">
-                <img src="./imgs/mobile-2.webp" alt="Vivo T4 5G" class="w-100 mb-2 deal-img">
-                <div class="fw-semibold small text-dark">Vivo T4 5G</div>
-                <div class="fw-bold text-primary small">from 20499*</div>
-              </a>
-              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
-                style="width: 180px;">
-                <img src="./imgs/mobile-3.webp" alt="Oppo K13 5G" class="w-100 mb-2 deal-img">
-                <div class="fw-semibold small text-dark">Oppo K13 5G</div>
-                <div class="fw-bold text-primary small">from 16499*</div>
-              </a>
-              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
-                style="width: 180px;">
-                <img src="./imgs/mobile-4.webp" alt="Motorola G45 5G" class="w-100 mb-2 deal-img">
-                <div class="fw-semibold small text-dark">Motorola G45 5G</div>
-                <div class="fw-bold text-primary small">From 10999*</div>
-              </a>
-              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
-                style="width: 180px;">
-                <img src="./imgs/mobile-5.webp" alt="POCO F7 5G" class="w-100 mb-2 deal-img">
-                <div class="fw-semibold small text-dark">POCO F7 5G</div>
-                <div class="fw-bold text-primary small">from 29999*</div>
-              </a>
-              <a href="#" class="deal-card text-decoration-none p-1 text-center flex-shrink-0 rounded"
-                style="width: 180px;">
-                <img src="./imgs/mobile-6.webp" alt="POCO F7 5G" class="w-100 mb-2 deal-img">
-                <div class="fw-semibold small text-dark">POCO F7 5G</div>
-                <div class="fw-bold text-primary small">from 29999*</div>
-              </a>
+  <!-- Deals -->
+  <section class="deals my-3">
+    <div class="container-xxl">
+      <div class="row g-0 align-items-stretch">
+        <div class="col-lg-10 bg-white p-3 position-relative">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 class="m-0">Best of Electronics</h5>
+            <a href="#" class="small text-primary text-decoration-none">VIEW ALL <i class="bi bi-chevron-right"></i></a>
+          </div>
+
+          <!-- Left Side  -->
+          <div id="boeViewport" class="deals-viewport">
+            <div class="deals-track">
+              <!-- Page 1 -->
+              <section id="boe1" class="page">
+                <div class="deals-container">
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                </div>
+                <a class="deal-btn next" href="#boe2"><i class="bi bi-chevron-right"></i></a>
+              </section>
+              <!-- Page 2 -->
+              <section id="boe2" class="page">
+                <div class="deals">
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                </div>
+                <a class="deal-btn prev" href="#boe1"><i class="bi bi-chevron-left"></i></a>
+                <a class="deal-btn next" href="#boe3"><i class="bi bi-chevron-right"></i></a>
+              </section>
+              <!-- Page 3 -->
+              <section id="boe3" class="page">
+                <div class="deals">
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center">
+                    <img src="./imgs/mobile-1.webp" alt="">
+                    <div class="d-name">Lorem, ipsum.</div>
+                    <div class="d-sub text-primary">Grab Now</div>
+                  </a>
+                </div>
+                <a class="deal-btn prev" href="#boe2"><i class="bi bi-chevron-left"></i></a>
+              </section>
             </div>
-            <!--! Right Arrow -->
-            <!-- <button class="scroll-btn right d-none d-lg-flex">
-              <i class="bi bi-chevron-right"></i>
-            </button> -->
+
+            <!-- Edge fade -->
+            <div class="deal-fade left d-none d-lg-block"></div>
+            <div class="deal-fade right d-none d-lg-block"></div>
           </div>
         </div>
-        <div class="col-lg-2 m-0">
-          <img src="./imgs/ad-banner-1.webp" alt="ad-banner">
+        <div class="col-lg-2 d-none d-lg-block ps-lg-3">
+          <img src="./imgs/ad-banner-1.webp" alt="" class="w-100 h-100 object-fit-cover rounded">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beauty,food,toys  -->
+  <section class="deals my-3">
+    <div class="container-xxl">
+      <div class="row g-0 align-items-stretch">
+        <div class="col-lg-10 bg-white p-3 position-relative">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+            <h5 id="bftA-title" class="m-0">Beauty, Food, Toys & more</h5>
+            <a href="#" class="small text-primary text-decoration-none">VIEW ALL <i class="bi bi-chevron-right"></i></a>
+          </div>
+
+          <div id="bftA" class="deals-viewport" role="region" aria-labelledby="bftA-title">
+            <div class="deals-track">
+
+              <!-- Page 1 -->
+              <section id="bftA-p1" class="page" tabindex="-1" aria-label="Page 1">
+                <div class="deals-grid">
+                  <a href="#" class="deal text-decoration-none text-center"
+                    aria-label="Top Selling Stationery from ₹49">
+                    <img loading="lazy" src="./imgs/beauty-1.webp" alt="Top Selling Stationery">
+                    <div class="d-name">Top Selling Stationery</div>
+                    <div class="d-sub text-primary">From ₹49</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Geared Cycles up to 70% off">
+                    <img loading="lazy" src="./imgs/beauty-2.webp" alt="Geared Cycles">
+                    <div class="d-name">Geared Cycles</div>
+                    <div class="d-sub text-primary">Up to 70% Off</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center"
+                    aria-label="Best of Action Toys up to 70% off">
+                    <img loading="lazy" src="./imgs/beauty-3.webp" alt="Best of Action Toys">
+                    <div class="d-name">Best of Action Toys</div>
+                    <div class="d-sub text-primary">Up to 70% Off</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center"
+                    aria-label="Remote Control Toys up to 80% off">
+                    <img loading="lazy" src="./imgs/beauty-4.webp" alt="Remote Control Toys">
+                    <div class="d-name">Remote Control Toys</div>
+                    <div class="d-sub text-primary">Up to 80% Off</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Coffee Powder up to 80% off">
+                    <img loading="lazy" src="./imgs/beauty-5.webp" alt="Coffee Powder">
+                    <div class="d-name">Coffee Powder</div>
+                    <div class="d-sub text-primary">Up to 80% Off</div>
+                  </a>
+                </div>
+                <a class="deal-btn next" href="#bftA-p2" aria-label="Next"><i class="bi bi-chevron-right"></i></a>
+              </section>
+
+              <!-- Page 2 -->
+              <section id="bftA-p2" class="page" tabindex="-1" aria-label="Page 2">
+                <div class="deals-grid">
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Food Spreads up to 75% off">
+                    <img loading="lazy" src="./imgs/beauty-6.webp" alt="Food Spreads">
+                    <div class="d-name">Food Spreads</div>
+                    <div class="d-sub text-primary">Up to 75% Off</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Chocolates">
+                    <img loading="lazy" src="./imgs/beauty-7.webp" alt="Chocolates">
+                    <div class="d-name">Chocolates</div>
+                    <div class="d-sub text-primary">From ₹99</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Skincare">
+                    <img loading="lazy" src="./imgs/beauty-8.webp" alt="Skincare">
+                    <div class="d-name">Skincare</div>
+                    <div class="d-sub text-primary">Up to 60% Off</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Haircare">
+                    <img loading="lazy" src="./imgs/beauty-9.webp" alt="Haircare">
+                    <div class="d-name">Haircare</div>
+                    <div class="d-sub text-primary">Up to 70% Off</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Fragrances">
+                    <img loading="lazy" src="./imgs/beauty-10.webp" alt="Fragrances">
+                    <div class="d-name">Fragrances</div>
+                    <div class="d-sub text-primary">Up to 65% Off</div>
+                  </a>
+                </div>
+                <a class="deal-btn prev" href="#bftA-p1" aria-label="Previous"><i class="bi bi-chevron-left"></i></a>
+                <a class="deal-btn next" href="#bftA-p3" aria-label="Next"><i class="bi bi-chevron-right"></i></a>
+              </section>
+
+              <!-- Page 3 -->
+              <section id="bftA-p3" class="page" tabindex="-1" aria-label="Page 3">
+                <div class="deals-grid">
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Makeup">
+                    <img loading="lazy" src="./imgs/beauty-11.webp" alt="Makeup">
+                    <div class="d-name">Makeup</div>
+                    <div class="d-sub text-primary">From ₹149</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Personal Care">
+                    <img loading="lazy" src="./imgs/beauty-12.webp" alt="Personal Care">
+                    <div class="d-name">Personal Care</div>
+                    <div class="d-sub text-primary">Up to 70% Off</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Protein & Nutrition">
+                    <img loading="lazy" src="./imgs/beauty-13.webp" alt="Protein & Nutrition">
+                    <div class="d-name">Protein & Nutrition</div>
+                    <div class="d-sub text-primary">Up to 60% Off</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Toys">
+                    <img loading="lazy" src="./imgs/beauty-14.webp" alt="Toys">
+                    <div class="d-name">Toys</div>
+                    <div class="d-sub text-primary">Up to 80% Off</div>
+                  </a>
+                  <a href="#" class="deal text-decoration-none text-center" aria-label="Stationery">
+                    <img loading="lazy" src="./imgs/beauty-15.webp" alt="Stationery">
+                    <div class="d-name">Stationery</div>
+                    <div class="d-sub text-primary">From ₹49</div>
+                  </a>
+                </div>
+                <a class="deal-btn prev" href="#bftA-p2" aria-label="Previous"><i class="bi bi-chevron-left"></i></a>
+              </section>
+            </div>
+
+            <div class="deal-fade left d-none d-lg-block" aria-hidden="true"></div>
+            <div class="deal-fade right d-none d-lg-block" aria-hidden="true"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-2 d-none d-lg-block ps-lg-3">
+          <img src="./imgs/ad-banner-3.webp" alt="Beauty & Food offers" class="w-100 h-100 object-fit-cover rounded">
         </div>
       </div>
     </div>
