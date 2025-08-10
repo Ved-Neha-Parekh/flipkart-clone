@@ -36,10 +36,9 @@ header {
 
 footer {
   color: #fff;
-  padding: var(--padding-section);
 }
 
-/*! LM Navbar — optimized */
+/*! Navbar */
 .fk-navbar {
   z-index: 1030;
 }
@@ -61,8 +60,8 @@ footer {
 }
 
 .fk-navbar .search-wrap .form-control {
-  background: var(--search-bg, #f0f5ff);
-  border: 1px solid var(--border-color, #e6e6e6);
+  background: #f0f5ff;
+  border: 1px solid #e6e6e6;
   border-radius: 12px;
   height: 44px;
   color: #1f2937;
@@ -79,8 +78,8 @@ footer {
 
 /* Login btn + dropdown */
 .login-dd .btn.btn-primary {
-  background: var(--primary-color, #2874f0);
-  border-color: var(--primary-color, #2874f0);
+  background: var(--primary-color);
+  border-color: var(--primary-color);
   padding: .45rem .75rem;
   border-radius: 8px;
   transition: background-color .15s ease, border-color .15s ease, box-shadow .15s ease;
@@ -122,8 +121,8 @@ footer {
   color: #374151;
 }
 
-/*! LM Navbar — optimized end */
-/*! LM Categories */
+/*! Navbar */
+/*! Categories */
 .categories {
   position: relative;
 }
@@ -185,8 +184,8 @@ footer {
   border-radius: 2px;
 }
 
-/*! LM Categories */
-/*! LM Slider — optimized */
+/*! Categories */
+/*! Slider */
 .fk-hero {
   --hero-aspect-desktop: 1248/240;
   --hero-aspect-mobile: 16/9;
@@ -508,8 +507,6 @@ footer {
   color: var(--primary-color, #2874f0);
 }
 
-
-/* Force 6 cols on desktop, responsive below */
 .deals.sh-6 .deals-grid.cols-6 {
   display: grid;
   gap: 18px;
@@ -659,7 +656,6 @@ footer {
   color: #0aa4a2;
 }
 
-/* Responsive: stack columns on small screens */
 @media (max-width: 991.98px) {
   .multi-groups .mg-title {
     font-size: 17px;
