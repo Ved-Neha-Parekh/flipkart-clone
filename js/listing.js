@@ -6,7 +6,9 @@ const assured = document.getElementById("assured");
 const fastDelivery = document.getElementById("fastDelivery");
 const sortBy = document.getElementById("sortBy");
 const countText = document.getElementById("countText");
-
+const searchBox =
+  document.getElementById("searchInput") ||
+  document.getElementById("searchInputMobile");
 // All product cards
 const items = Array.from(document.querySelectorAll(".product"));
 
