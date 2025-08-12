@@ -11,9 +11,10 @@ const countText = document.getElementById("countText");
 const items = Array.from(document.querySelectorAll(".product"));
 
 function passes(el) {
-  const assuredOn = assured.checked;
-  const isAssured = el.dataset.assured === "1";
-  if (assuredOn && !isAssured) return false;
+  // Assured
+  if (assured.checked && el.dataset.assured !== "1") return false;
+  // Fast Delivery
+  if (fastDelivery.checked && el.dataset.delivery !== "1") return false;
   return true;
 }
 
@@ -29,4 +30,5 @@ function applyFilters() {
 
 //? Events
 assured.addEventListener("change", applyFilters);
+fastDelivery.addEventListener("change", applyFilters);
 applyFilters();
