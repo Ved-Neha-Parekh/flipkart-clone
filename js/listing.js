@@ -1,5 +1,4 @@
 const rows = document.getElementById("productRows");
-
 const minPrice = document.getElementById("minPrice");
 const maxPrice = document.getElementById("maxPrice");
 const applyPrice = document.getElementById("applyPrice");
@@ -7,18 +6,27 @@ const assured = document.getElementById("assured");
 const fastDelivery = document.getElementById("fastDelivery");
 const sortBy = document.getElementById("sortBy");
 const countText = document.getElementById("countText");
-const assuredCheck = document.getElementById("assured");
 
-assuredCheck.addEventListener("change", () => {
-  const allProducts = document.querySelectorAll(".product");
-  if (assuredCheck.checked) {
-    allProducts.forEach((product) => {
-      product.style.display =
-        product.getAttribute("data-assured") === "1" ? "" : "none";
-    });
-  } else {
-    allProducts.forEach((product) => {
-      product.style.display = "";
-    });
-  }
-});
+// All product cards
+const items = Array.from(document.querySelectorAll(".product"));
+
+function passes(el) {
+  const assuredOn = assured.checked;
+  const isAssured = el.dataset.assured === "1";
+  if (assuredOn && !isAssured) return false;
+  return true;
+}
+
+function applyFilters() {
+  let visibleProducts = 0;
+  items.forEach((item) => {
+    const OK = passes(item);
+    item.classList.toggle("d-none", !OK);
+    if (OK) visibleProducts++;
+  });
+  if (countText) countText.textContent = `Showing ${visibleProducts}`;
+}
+
+//? Events
+assured.addEventListener("change", applyFilters);
+applyFilters();
