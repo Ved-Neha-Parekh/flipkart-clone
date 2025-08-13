@@ -35,6 +35,3 @@ function applyFilters() {
 assured.addEventListener("change", applyFilters);
 fastDelivery.addEventListener("change", applyFilters);
 applyFilters();
-
-const sorted = items.toSorted();
-console.log(sorted);
