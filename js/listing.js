@@ -17,6 +17,7 @@ function passes(el) {
   if (assured.checked && el.dataset.assured !== "1") return false;
   // Fast Delivery
   if (fastDelivery.checked && el.dataset.delivery !== "1") return false;
+
   return true;
 }
 
@@ -34,3 +35,6 @@ function applyFilters() {
 assured.addEventListener("change", applyFilters);
 fastDelivery.addEventListener("change", applyFilters);
 applyFilters();
+
+const sorted = items.toSorted();
+console.log(sorted);
